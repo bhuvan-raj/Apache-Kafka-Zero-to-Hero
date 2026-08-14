@@ -28,12 +28,12 @@ A **Kafka cluster** is a group of one or more **brokers** working together, coor
 
 ```
 ┌─────────────────────────── Kafka Cluster ───────────────────────────┐
-│                                                                       │
-│   ┌────────────┐        ┌────────────┐        ┌────────────┐       │
-│   │  Broker 1  │        │  Broker 2  │        │  Broker 3  │       │
-│   └────────────┘        └────────────┘        └────────────┘       │
-│                                                                       │
-└───────────────────────────────────────────────────────────────────┘
+│                                                                     │
+│   ┌────────────┐        ┌────────────┐        ┌────────────┐        │
+│   │  Broker 1  │        │  Broker 2  │        │  Broker 3  │        │
+│   └────────────┘        └────────────┘        └────────────┘        │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
 A cluster's job is to:
@@ -67,7 +67,7 @@ Key properties:
 ```
 Topic: "orders"
 ┌───────────────────────────────────────────────────┐
-│  Partition 0  │  Partition 1  │  Partition 2       │
+│  Partition 0  │  Partition 1  │  Partition 2      │
 └───────────────────────────────────────────────────┘
 ```
 
@@ -206,11 +206,11 @@ In modern Kafka (**KRaft mode**, replacing Zookeeper), the controller role is ha
 Putting it all together — the full path of a message from producer to consumer:
 
 ```
- 1. Producer                     2. Broker (Partition Leader)
- ┌──────────┐   sends record     ┌───────────────────────────┐
- │ Producer │ ─────────────────► │ Leader appends to log,     │
- └──────────┘                    │ assigns next offset        │
-                                  └──────────────┬──────────────┘
+    1. Producer                     2. Broker (Partition Leader)
+  ┌──────────┐   sends record     ┌───────────────────────────┐
+  │ Producer │ ─────────────────► │ Leader appends to log,    │
+  └──────────┘                    │ assigns next offset       │
+                                  └──────────────┬────────────┘
                                                  │
                                   3. Replication │ (to followers in ISR)
                                                  ▼
@@ -221,7 +221,7 @@ Putting it all together — the full path of a message from producer to consumer
                                   4. Acknowledgment (per acks config)
                                                  ▼
                                   ┌───────────────────────────┐
-                                  │ Producer receives ack       │
+                                  │ Producer receives ack     │
                                   └───────────────────────────┘
 
  5. Consumer                     6. Consumer reads from leader,
@@ -255,11 +255,11 @@ With **replication factor 3** and **3 brokers**, every partition has a replica o
                           Topic: "orders"  (3 partitions, replication factor 3)
 
         ┌───────────────────┐   ┌───────────────────┐   ┌───────────────────┐
-        │      Broker 1      │   │      Broker 2      │   │      Broker 3      │
+        │      Broker 1     │   │      Broker 2     │   │      Broker 3     │
         ├───────────────────┤   ├───────────────────┤   ├───────────────────┤
-        │ P0  [LEADER]       │   │ P0  [Follower]     │   │ P0  [Follower]     │
-        │ P1  [Follower]     │   │ P1  [LEADER]       │   │ P1  [Follower]     │
-        │ P2  [Follower]     │   │ P2  [Follower]     │   │ P2  [LEADER]       │
+        │ P0  [LEADER]      │   │ P0  [Follower]    │   │ P0  [Follower]    │
+        │ P1  [Follower]    │   │ P1  [LEADER]      │   │ P1  [Follower]    │
+        │ P2  [Follower]    │   │ P2  [Follower]    │   │ P2  [LEADER]      │
         └───────────────────┘   └───────────────────┘   └───────────────────┘
 
 Legend:
