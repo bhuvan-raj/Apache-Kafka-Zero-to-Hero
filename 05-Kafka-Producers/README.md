@@ -23,20 +23,18 @@
 ## 🔹 Producer Architecture
 
 A Kafka producer isn't a simple "send and forget" HTTP-style client — internally it's a small pipeline optimized for throughput:
-
 ```
- Application thread              Producer internals                Network
-┌─────────────┐    .send()     ┌────────────────────┐   batches   ┌────────┐
-│ your code    │ ─────────────► │ Serializer          │            │        │
-│ producer.send│                │      ↓               │            │ Broker │
+Application Thread              Producer Internals                 Network
+┌─────────────┐    .send()     ┌──────────────────────┐   batches  ┌────────┐
+│ Your Code   │ ─────────────► │ Serializer           │            │        │
+│producer.send│                │       ↓              │            │ Broker │
 └─────────────┘                │ Partitioner          │            │        │
-                                │      ↓               │            └────────┘
-                                │ Record Accumulator   │  I/O thread
-                                │  (per-partition       │ ─────────► sends
-                                │   batching buffer)    │   batched requests
-                                └────────────────────┘
+                               │       ↓              │            └────────┘
+                               │ Record Accumulator   │  I/O Thread
+                               │ (per-partition       │ ─────────► Sends
+                               │  batching buffer)    │   batched requests
+                               └──────────────────────┘
 ```
-
 **Key pieces:**
 1. **Serializer** — converts your key/value objects (e.g. Java objects, JSON, Avro) into bytes.
 2. **Partitioner** — decides which partition a record goes to (by key hash, or round-robin/sticky if no key).
