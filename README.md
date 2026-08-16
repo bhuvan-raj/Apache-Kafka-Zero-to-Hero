@@ -1,4 +1,5 @@
 <div align="center">
+<img src="https://github.com/bhuvan-raj/Kubernetes-Openshift-Zero-to-Hero/blob/main/assets/Kafka.WEBP" alt="Banner" />
 
 # 🚀 Apache Kafka: Zero to Hero
 
