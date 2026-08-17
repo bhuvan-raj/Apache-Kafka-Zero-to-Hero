@@ -1,4 +1,4 @@
-# 04 — Topics and Partitions
+# 03 — Topics and Partitions
 
 > 🎯 **Goal of this module:** Get hands-on with the topic/partition lifecycle — creating, inspecting, and deleting topics — and understand how message keys determine partition placement and ordering.
 
