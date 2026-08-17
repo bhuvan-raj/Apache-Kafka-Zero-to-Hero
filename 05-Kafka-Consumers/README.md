@@ -1,4 +1,4 @@
-# 06 — Kafka Consumers
+# 05 — Kafka Consumers
 
 > 🎯 **Goal of this module:** Understand how consumers coordinate through consumer groups, how offsets are committed, and what actually happens — mechanically — during a rebalance.
 
