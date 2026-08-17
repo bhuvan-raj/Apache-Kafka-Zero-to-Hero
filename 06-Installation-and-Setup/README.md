@@ -1,4 +1,4 @@
-# 03 — Installation and Setup
+# 06 — Installation and Setup
 
 > 🎯 **Goal of this module:** Get a working Kafka installation running locally using KRaft mode, understand what's inside the distribution, and learn the basic CLI workflow for starting Kafka and managing topics.
 
