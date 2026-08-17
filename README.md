@@ -36,8 +36,7 @@ This course takes you from **Kafka fundamentals** to **production operations** â
 |:-:|--------|--------|
 | 01 | [Introduction to Kafka](./01-Introduction-to-Kafka/README.md) | Kafka, use cases, messaging, event-driven architecture |
 | 02 | [Kafka Architecture](./02-Kafka-Architecture/README.md) | Brokers, topics, partitions, offsets, consumers, replication |
-| 03 | [Installation & Setup](./03-Installation-and-Setup/README.md) | KRaft, single broker, multi-broker cluster, CLI |
-| 04 | [Topics & Partitions](./04-Topics-and-Partitions/README.md) | Topic management, partitions, keys, offsets |
+| 03 | [Topics & Partitions](./03-Topics-and-Partitions/README.md) | Topic management, partitions, keys, offsets |
 
 </details>
 
@@ -46,8 +45,9 @@ This course takes you from **Kafka fundamentals** to **production operations** â
 
 | # | Module | Topics |
 |:-:|--------|--------|
-| 05 | [Producers](./05-Kafka-Producers/README.md) | Producer configuration, acknowledgements, retries, idempotency |
-| 06 | [Consumers](./06-Kafka-Consumers/README.md) | Consumer groups, offsets, commits, rebalancing, lag |
+| 04 | [Producers](./04-Kafka-Producers/README.md) | Producer configuration, acknowledgements, retries, idempotency |
+| 05 | [Consumers](./05-Kafka-Consumers/README.md) | Consumer groups, offsets, commits, rebalancing, lag |
+| 06 | [Installation & Setup](./06-Installation-and-Setup/README.md) | KRaft, single broker, multi-broker cluster, CLI |
 | 07 | [Replication & HA](./07-Replication-and-High-Availability/README.md) | Leaders, followers, ISR, leader election, durability |
 | 08 | [Storage & Retention](./08-Storage-and-Retention/README.md) | Logs, segments, retention, compaction, tombstones |
 
