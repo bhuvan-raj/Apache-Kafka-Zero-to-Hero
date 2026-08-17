@@ -1,4 +1,4 @@
-# 05 — Kafka Producers
+# 04 — Kafka Producers
 
 > 🎯 **Goal of this module:** Understand how producers actually work internally — batching, acknowledgments, retries, idempotency — and how to tune them for the durability/throughput trade-off your application needs.
 
